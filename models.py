@@ -74,7 +74,7 @@ class Cart:
         Если remove_count не передан, то удаляется вся позиция
         Если remove_count больше, чем количество продуктов в позиции, то удаляется вся позиция
         """
-        if remove_count is None or remove_count > self.products[product]:
+        if remove_count is None or remove_count >= self.products[product]:
             del self.products[product]
         else:
             self.products[product] -= remove_count
@@ -98,4 +98,3 @@ class Cart:
         for product in self.products:
             product.buy(self.products[product])
         self.clear()
-        return True
